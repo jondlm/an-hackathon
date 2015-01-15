@@ -62,7 +62,9 @@
         itemTemplate.on('click', function(e) {
           updateSidebar(item.key, item.value, "");
         });
+        $("[data-tr-key='"+ item.key +"']").html(item.value);
       });
+
     });
   }
 
