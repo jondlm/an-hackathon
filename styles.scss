@@ -73,9 +73,23 @@
     margin-bottom: 15px;
     button {
     }
+    display: none;
   }
+
+  & > .tr-translation-language {
+    height: 40px;
+
+    select {
+      border: 1px solid #ccc;
+      width: 100%;
+      display: block;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+
   & > .tr-translation-navigation {
-    height: calc(100% - 415px);
+    height: calc(100% - 360px);
     overflow: scroll;
 
     & > div {

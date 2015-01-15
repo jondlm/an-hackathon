@@ -54,9 +54,18 @@
         color: #fff; }
   .tr-sidebar > .tr-new-translation {
     height: 100px;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    display: none; }
+  .tr-sidebar > .tr-translation-language {
+    height: 40px; }
+    .tr-sidebar > .tr-translation-language select {
+      border: 1px solid #ccc;
+      width: 100%;
+      display: block;
+      font-size: 12px;
+      cursor: pointer; }
   .tr-sidebar > .tr-translation-navigation {
-    height: calc(100% - 415px);
+    height: calc(100% - 360px);
     overflow: scroll; }
     .tr-sidebar > .tr-translation-navigation > div {
       background-color: #D95B43;
