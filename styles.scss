@@ -1,0 +1,137 @@
+.tr-sidebar {
+  font-size: 14px !important;
+  z-index: 999999;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background: #fff;
+  box-sizing: border-box !important;
+  padding: 10px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
+  border-right: 2px solid #C02942;
+
+
+  & > .tr-editor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: inherit;
+    padding: 10px;
+    border-top: 1px solid #D95B43;
+    width: 100%;
+
+    & > small.tr-current-language {
+      display: block;
+      opacity: 0.6;
+    }
+
+    & > p.tr-text-key {
+      background-color: #ececec;
+      border-radius: 3px;
+      padding: 10px;
+      font-family: monospace;
+      font-weight: bold;
+      color: #888;
+      border: 1px solid #ddd;
+    }
+
+    & > p.tr-original-text {
+      margin: 1em 0;
+      padding: 0 11px;
+    }
+
+    & > textarea {
+      height: 100px;
+    }
+
+    & > button {
+      float: right;
+      border-radius: 3px;
+      border: none;
+      padding: 4px 16px;
+      cursor: pointer;
+      background-color: lighten(#53777A, 40%) !important;
+      color: #53777A;
+      font-weight: bold;
+      font-size: 1.1em;
+      font-family: inherit !important;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  & > .tr-new-translation {
+    position: relative;
+    margin-bottom: 15px;
+    button {
+
+    }
+  }
+  & > .tr-translation-navigation {
+    & > div {
+      background-color: #D95B43;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      padding: 5px 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+
+
+    }
+
+    .tr-translation-namespace {
+      &:after {
+        color: #ECD078;
+        content: '\25BA';
+        float: right;
+      }
+    }
+
+    .tr-translation-key {
+
+    }
+  }
+
+  input[type='text'] {
+    height: 26px;
+    margin: 0;
+    box-sizing: inherit !important;
+    padding: 0 10px;
+  }
+
+  textarea {
+    font-family: inherit !important;
+    font-size: 1em;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 1em;
+    border-radius: 3px;
+    width: 100%;
+    display: block;
+    border: 1px solid #53777A;
+  }
+
+  p {
+    line-height: 1;
+  }
+  button {
+    border-radius: 3px;
+    border: none;
+    padding: 4px 16px;
+    cursor: pointer;
+    background-color: lighten(#53777A, 40%) !important;
+    color: #53777A;
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: inherit !important;
+    &:hover {
+      color: #fff;
+    }  
+  }
+
+}

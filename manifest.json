@@ -5,9 +5,12 @@
   "version": "0.0.1",
   "permissions": [ "*://*/*" ],
   "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["index.js"],
-    "css": ["index.css"],
+    "matches": ["*://*.devnxs.net/*"],
+    "js": ["jquery.js", "index.js"],
+    "css": ["styles.css"],
     "run_at": "document_end"
-  }]
+  }],
+ "web_accessible_resources": [
+   "sidebar.html"
+ ]
 }
