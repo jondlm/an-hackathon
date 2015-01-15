@@ -23,7 +23,7 @@
 
     lang.on('change', function() {
       languageCode = lang.val();
-      reloadPhrases();
+      reloadPhrases(true);
     });
 
     saveButton.on('click', function() {
@@ -43,6 +43,12 @@
           var justChanged = $("[data-tr-key='"+ newKey +"']");
           justChanged.html(newValue);
 
+          justChanged.removeClass('pulse');
+          justChanged.addClass('pulse');
+          setTimeout(function() {
+            justChanged.removeClass('pulse');
+          }, 1000);
+
           reloadPhrases();
         }
       });
@@ -52,7 +58,7 @@
   });
 
   // Completely reloads all phrases for the current language
-  function reloadPhrases () {
+  function reloadPhrases (animate) {
     var nav = $('.tr-translation-navigation');
     nav.html('');
     $.getJSON(url + 'keys?language_code=' + languageCode, function (items) {
@@ -63,6 +69,14 @@
           updateSidebar(item.key, item.value, "");
         });
         $("[data-tr-key='"+ item.key +"']").html(item.value);
+        $("[data-tr-key='"+ item.key +"']").addClass('animated');
+        if (animate) {
+          $("[data-tr-key='"+ item.key +"']").addClass('fadeIn');
+          setTimeout(function() {
+            $("[data-tr-key='"+ item.key +"']").removeClass('fadeIn');
+          }, 1000);
+          // $("[data-tr-key='"+ item.key +"']").addClass('pulse');
+        }
       });
 
     });
