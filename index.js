@@ -1,21 +1,34 @@
 (function(document, chrome, $) {
   'use strict';
 
-  var url = 'http://localhost:8081/';
-  var languageCode = 'en';
+  var url = 'http://10.10.32.17:8081/';
+  // var url = 'http://localhost:8081/';
+
+  // fetch initial code
+  var languageCode = 'fr';
   var sidebarUrl = chrome.extension.getURL('sidebar.html');
 
   // var fields = $('[data-tr-key]');
 
   // Load sidebar
-  $.get(sidebarUrl, function (sidebar) {
-    document.body.innerHTML += sidebar;
+  $.get(sidebarUrl, function (template) {
+    var sidebar = $(template);
+    $('body').append(sidebar);
 
     var saveButton = $('.tr-save');
 
+    var lang = sidebar.find('.tr-translation-language select');
+
+    lang.val(languageCode);
+
+    lang.on('change', function() {
+      languageCode = lang.val();
+      reloadPhrases();
+    });
+
     saveButton.on('click', function() {
-      var newKey = $('.tr-text-key').text();
-      var newValue = $('.tr-text-value').val();
+      var newKey = sidebar.find('.tr-text-key').text();
+      var newValue = sidebar.find('.tr-text-value').val();
 
       $.ajax({
         type: 'POST',
@@ -32,8 +45,7 @@
 
           reloadPhrases();
         }
-      })
-
+      });
     });
 
     reloadPhrases();
@@ -45,17 +57,33 @@
     nav.html('');
     $.getJSON(url + 'keys?language_code=' + languageCode, function (items) {
       items.forEach(function (item) {
-        nav.append(boxTemplate(item));
+        var itemTemplate = $(boxTemplate(item));
+        nav.append(itemTemplate);
+        itemTemplate.on('click', function(e) {
+          updateSidebar(item.key, item.value, "");
+        });
       });
     });
+  }
+
+  function updateSidebar(key, value, orig) {
+    $('.tr-text-key').text(key);
+    $('.tr-text-value').val(value);
+    $('.tr-original-text').text(escapeTrText(orig));
+  }
+
+  function escapeTrText(text) {
+    return $('<div />').text(text).html();
   }
 
   function boxTemplate (data) {
     return '' +
     '<div class="tr-translation">' +
-      data.key +
+      '<div class="tr-translation-key">' +
+        data.key +
+      '</div>' +
       '<p class="tr-translation-value" title="click to edit">' +
-        data.value +
+        escapeTrText(data.value) +
       '</p>' +
     '</div>';
   }

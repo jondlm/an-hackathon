@@ -12,7 +12,7 @@
   box-sizing: border-box !important;
   padding: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
-  border-right: 2px solid #C02942;
+  border-right: 2px solid #5C6BC0;
 
   & > div {
     box-sizing: border-box;
@@ -22,7 +22,7 @@
   & > .tr-editor {
     overflow: hidden;
     box-sizing: inherit;
-    border: 1px solid #D95B43;
+    border: 1px solid #5C6BC0;
     border-width: 1px 0;
     width: 100%;
     height: 300px;
@@ -93,15 +93,17 @@
     overflow: scroll;
 
     & > div {
-      background-color: #D95B43;
+      background-color: #E8EAF6;
       border-radius: 3px;
       margin-bottom: 10px;
       padding: 5px 8px;
-      font-weight: bold;
       cursor: pointer;
-      color: #fff;
+      word-wrap: break-word;
+      border: 1px solid #ececec;
 
-
+      &:hover {
+        border: 1px solid #5C6BC0;
+      }
     }
 
     .tr-translation-namespace {
@@ -113,7 +115,11 @@
     }
 
     .tr-translation-key {
-
+      font-size: 1.1em;
+      padding: 4px;
+      border-radius: 3px;
+      background: #9FA8DA;
+      color: #000;
     }
   }
 
@@ -133,7 +139,7 @@
     border-radius: 3px;
     width: 100%;
     display: block;
-    border: 1px solid #53777A;
+    border: 1px solid #5C6BC0;
   }
 
   p {
