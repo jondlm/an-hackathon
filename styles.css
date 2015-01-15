@@ -33,7 +33,8 @@
       font-family: monospace;
       font-weight: bold;
       color: #888;
-      border: 1px solid #ddd; }
+      border: 1px solid #ddd;
+      word-wrap: break-word; }
     .tr-sidebar > .tr-editor > p.tr-original-text {
       margin: 1em 0;
       padding: 0 11px; }
