@@ -1,3 +1,4 @@
+/* vim: set ft=scss.sass.css */
 .tr-sidebar {
   font-size: 14px !important;
   z-index: 999999;
@@ -9,17 +10,19 @@
   width: 300px;
   background: #fff;
   box-sizing: border-box !important;
-  padding: 10px;
+  padding: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
   border-right: 2px solid #C02942; }
+  .tr-sidebar > div {
+    box-sizing: border-box;
+    padding: 10px; }
   .tr-sidebar > .tr-editor {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    overflow: hidden;
     box-sizing: inherit;
-    padding: 10px;
-    border-top: 1px solid #D95B43;
-    width: 100%; }
+    border: 1px solid #D95B43;
+    border-width: 1px 0;
+    width: 100%;
+    height: 300px; }
     .tr-sidebar > .tr-editor > small.tr-current-language {
       display: block;
       opacity: 0.6; }
@@ -50,20 +53,23 @@
       .tr-sidebar > .tr-editor > button:hover {
         color: #fff; }
   .tr-sidebar > .tr-new-translation {
-    position: relative;
+    height: 100px;
     margin-bottom: 15px; }
-  .tr-sidebar > .tr-translation-navigation > div {
-    background-color: #D95B43;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    padding: 5px 8px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #fff; }
-  .tr-sidebar > .tr-translation-navigation .tr-translation-namespace:after {
-    color: #ECD078;
-    content: '\25BA';
-    float: right; }
+  .tr-sidebar > .tr-translation-navigation {
+    height: calc(100% - 415px);
+    overflow: scroll; }
+    .tr-sidebar > .tr-translation-navigation > div {
+      background-color: #D95B43;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      padding: 5px 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff; }
+    .tr-sidebar > .tr-translation-navigation .tr-translation-namespace:after {
+      color: #ECD078;
+      content: '\25BA';
+      float: right; }
   .tr-sidebar input[type='text'] {
     height: 26px;
     margin: 0;
