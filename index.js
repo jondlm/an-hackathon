@@ -1,8 +1,8 @@
 (function(document, chrome, $) {
   'use strict';
 
-  var url = 'http://10.10.32.17:8081/';
-  // var url = 'http://localhost:8081/';
+  // var url = 'http://10.10.32.17:8081/';
+  var url = 'http://localhost:8081/';
 
   // fetch initial code
   var languageCode = 'fr';
